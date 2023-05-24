@@ -1,0 +1,6 @@
+# Cultural Differnences
+
+Het grootste verschil dat mij opviel tussen de Finse en Nederlandse cultuur is dat er andere sociale normen zijn. In Nederland is het heel normaal om gedag te zeggen tegen mensen op straat of een kort gesprek met ze te houden over koetjes en kalfjes. Finnen daarentegen zijn een stuk terughoudender als het neerkomt op contact met onbekenden. Een groet werd niet of nauwelijks beantwoord op straat. In enkele gevallen waren er wel mensen benieuwd naar wat wij, Nederlandse toeristen, aan het uitspoken waren in Oulu. Met deze mensen hebben we wel een kort gesprek kunnen voeren.
+	
+    
+Na wat gesprekken met Finnen kwamen we er ook achter dat wij Nederlanders een stuk progressiever zijn, wat stiekem ook wel te verwachten was. Het is in Finland bijvoorbeeld pas vanaf 2017 mogelijk om met dezelfde seks te trouwen, iets wat in Nederland sinds 2000 al mocht. Ook zoiets als seksuele voorlichting is voor vele Finnen nog taboe en wanneer deze toch gegeven wordt is de inhoud mager. Ook zijn drugs nog een hot topic in Finland. Cannabis wordt wel gebruikt, ondanks de illegale status ervan, maar lijkt niet zo groot te zijn als in Nederland. Kauwtabak en snus zijn daarentegen wel legaal in Finland en worden ook veel meer gebruikt.

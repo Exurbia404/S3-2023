@@ -1,0 +1,6 @@
+C:\Users\tomvh\Documents\School\S3 - 2023\soundsensei\SoundSenseiApp\vueapp\obj\Debug\vue-frontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\tomvh\Documents\School\S3 - 2023\soundsensei\SoundSenseiApp\vueapp\obj\Debug\vue-frontend.esproj.CoreCompileInputs.cache
+C:\Users\tomvh\Documents\School\S3 - 2023\SoundSenseiApp\vueapp\obj\Debug\vue-frontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\tomvh\Documents\School\S3 - 2023\SoundSenseiApp\vueapp\obj\Debug\vue-frontend.esproj.CoreCompileInputs.cache
+C:\Users\tomvh\Documents\School\S3 - 2023\SoundSensei project\vueapp\obj\Debug\vue-frontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\tomvh\Documents\School\S3 - 2023\SoundSensei project\vueapp\obj\Debug\vue-frontend.esproj.CoreCompileInputs.cache
