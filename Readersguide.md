@@ -13,7 +13,7 @@ Ik heb een API geschreven in __ASP.NET 7__. De API maakt gebruik van een __Data 
 
 De API staat momenteel online op <https://soundsenseiwebapp.azurewebsites.net/swagger/index.html> en wordt via Azure gehost. Ik heb ook een __MySQL database__ via Azure laten hosten waar mijn data in opgeslagen wordt. 
 
-![image info](./Documentatie/ApiProjectFiles.jpg)
+![image info](/Documentatie/ApiProjectFiles.jpg)
 
 In mijn frontend maak ik gebruik van __React.js, Node.js en tailwind__. De frontend staat (op 31-5) nog niet online maar ook deze kan ik via Azure online zien te krijgen.
 
@@ -36,7 +36,7 @@ Ik gebruik een Trello kanban bord om mijn project te managen. Een uitnodiging om
 
 Ik heb op mijn backend CI/CD kunnen toepassen door middel van github actions and Azure CI/CD, hierdoor kan ik telkens als ik push naar mijn repo builden, testen en dan pas hosten.
 
-![image info](./Documentatie/GithubCICD.jpg)
+![image info](/Documentatie/GithubCICD.jpg)
 
 ### Cultural differences and ethics
 **You recognize and take into account cultural differences when working with multi-site teams, and are aware of ethical aspects in software development.**
