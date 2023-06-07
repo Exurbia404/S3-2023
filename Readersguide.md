@@ -15,15 +15,35 @@ De API staat momenteel online op <https://soundsenseiwebapp.azurewebsites.net/sw
 
 ![image info](/Documentatie/ApiProjectFiles.jpg)
 
-In mijn frontend maak ik gebruik van __React.js, Node.js en tailwind__. De frontend staat (op 31-5) nog niet online maar ook deze kan ik via Azure online zien te krijgen.
+In mijn frontend maak ik gebruik van __React.js, Node.js en tailwind__. De frontend staat via Azure online en kan via de volgende link bezocht worden: [SoundSensei](https://zealous-dune-066a9d610.3.azurestaticapps.net "SoundSensei Azure link"). SoundSensei bevat meerdere pagina's:
+
+![image info](/Documentatie/hoofdscherm.png)
+Hier zie je het hoofdscherm. Als je de pagina refresht selecteert de pagina 3 willekeurige items van de database om te laten zien. Zo heb je telkens weer wat anders op je hoofdscherm.
+
+![image info](/Documentatie/productpagina.png)
+Dit is de productpagina. Hier zijn alle verschillende producten te zien, er zijn ook filters aanwezig om het zoeken naar items makkelijker te maken. Je kunt sorteren en filteren op brand.
+
+![image info](/Documentatie/productinfopagina.png)
+Dit is de specifieke informatie die je kan zien per product, er is meer informatie beschikbaar per product dus hier kan nog altijd wat bij. Het liefste gebruik ik meerdere plaatjes en dat is zeker iets wat ik nog kan implementeren.
+
+![image info](/Documentatie/inlogscherm.png)
+Hier kan een gebruiker inloggen.
+
+![image info](/Documentatie/signinscherm.png)
+Als een gebruiker nog geen account heeft kan hij/zij hier een nieuw account aanmaken.
+
 
 ### Software quality
 
 **You use software tooling and methodology that continuously monitors and improve the software quality during software development.**
 
- Tot slot kan ik allerlei testen schrijven om mijn software kwaliteit te checken.
+![image info](/Documentatie/testexplorer.png)
+Ik heb voor mijn backend, voor alle controllers unit tests geschreven. Hierdoor is mijn test coverage >95%.
 
+![image info](/Documentatie/actiondiagram.png)
+Wanneer ik push naar mijn git wordt er automatisch een build gemaakt, en worden al mijn tests gerund. Het was de bedoeling dat er automatisch een test result plan wordt geupload naar mijn git voor analyse maar dit is mij tot op heden niet gelukt werkend te krijgen. Het lukt wel om mijn solution te builden, te testen en te publishen.
 
+![image info](/Documentatie/buildanalysis.png)
 
 ### Agile method
 
@@ -34,9 +54,15 @@ Ik gebruik een Trello kanban bord om mijn project te managen. Een uitnodiging om
 ### CI/CD
 **You implement a (semi)automated software release process that matches the needs of the project context.**
 
-Ik heb op mijn backend CI/CD kunnen toepassen door middel van github actions and Azure CI/CD, hierdoor kan ik telkens als ik push naar mijn repo builden, testen en dan pas hosten.
-
 ![image info](/Documentatie/GithubCICD.jpg)
+
+Ik heb op mijn backend CI/CD kunnen toepassen door middel van github actions and Azure CI/CD, hierdoor kan ik telkens als ik push naar mijn repo builden, testen en dan pas hosten. Zie het stukje Software Quality.
+
+![image info](/Documentatie/frontendbuild.png)
+
+Daarnaast heb ik ook CI/CD geimplementeerd voor mijn frontend, waarbij het zelfde verhaal van toepassing is behalve de tests.
+
+
 
 ### Cultural differences and ethics
 **You recognize and take into account cultural differences when working with multi-site teams, and are aware of ethical aspects in software development.**
