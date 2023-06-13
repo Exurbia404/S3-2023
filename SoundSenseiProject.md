@@ -26,6 +26,13 @@ Als hobbyist wil ik documentatie van een product kunnen inzien zodat ik bijvoorb
 
 # Mockup wireframes
 
+![image info](/Documentatie/homepage-wireframe.png)
+
+![image info](/Documentatie/productspage-wireframe.png)
+
+![image info](/Documentatie/productspecificpage-wireframe.png)
+
+
 # C4 Model
 
 ## Contextdiagram
