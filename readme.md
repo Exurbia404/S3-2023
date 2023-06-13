@@ -51,6 +51,8 @@ Wanneer ik push naar mijn git wordt er automatisch een build gemaakt, en worden 
 
 Ik gebruik een Trello kanban bord om mijn project te managen. Een uitnodiging om deel te nemen aan de workspace is [Hier](https://trello.com/invite/b/0F2U4pv4/ATTI6facbb6aaba9b42c7fe6c076f33f3b2168DBE687/soundsensei "Trello invite") te vinden. Ik gebruik in het kanban bord labels om duidelijk aan te geven welk item bij welk onderdeel van mijn project hoort.
 
+Ook heb ik in mijn 'management document.md' een uitleg gegeven over Kanban, Lean en Scrum. 
+
 ### CI/CD
 **You implement a (semi)automated software release process that matches the needs of the project context.**
 
@@ -75,6 +77,8 @@ Zie Ethics.md and Cultural differences.md
 
 ### Business processes
 **You can explain simple business processes and relate them to the development of your software project.**
+
+Ik heb in mijn 'business analyis.md' document een analyse gemaakt van een fictief project in de logistiek. Ik heb een oude en een nieuwe situatie gemodelleerd en een verbetering toegepast.
 
 ### Professional
 **You act in a professional manner during software development and learning.**
