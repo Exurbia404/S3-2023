@@ -37,6 +37,7 @@ Als een gebruiker nog geen account heeft kan hij/zij hier een nieuw account aanm
 
 **You use software tooling and methodology that continuously monitors and improve the software quality during software development.**
 
+#### Backend
 ![image info](/Documentatie/testexplorer.png)
 Ik heb voor mijn backend, voor alle controllers unit tests geschreven. Hierdoor is mijn test coverage >95%.
 
@@ -44,6 +45,21 @@ Ik heb voor mijn backend, voor alle controllers unit tests geschreven. Hierdoor 
 Wanneer ik push naar mijn git wordt er automatisch een build gemaakt, en worden al mijn tests gerund. Het was de bedoeling dat er automatisch een test result plan wordt geupload naar mijn git voor analyse maar dit is mij tot op heden niet gelukt werkend te krijgen. Het lukt wel om mijn solution te builden, te testen en te publishen.
 
 ![image info](/Documentatie/buildanalysis.png)
+
+#### Frontend
+
+Tot slot heb ik drie simpele tests geschreven voor mijn ProductsOfTheDay component;
+
+Een simpele API test om te kijken of de component succesvol de data van de API kan fetchen en kan laten zien:
+![image info](/Documentatie/apitest.png)
+
+Een test om te zien of er altijd 3 verschillende producten displayed worden:
+![image info](/Documentatie/functionalitytest.png)
+
+En een render test waarbij de test kijkt of de component wel fatsoenlijk zonder errors rendert.
+![image info](/Documentatie/rendertest.png)
+
+
 
 ### Agile method
 
