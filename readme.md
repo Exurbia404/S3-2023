@@ -75,6 +75,14 @@ Zie Ethics.md and Cultural differences.md
 ### Requirements and design
 **You translate (non-functional) requirements to extend existing (architectural) designs and can validate them using multiple types of test techniques.**
 
+Ik heb user stories gemaakt voor mijn SoundSensei project, wireframe modellen gemaakt voor mijn UI, context en container diagrammen gemaakt;
+
+![image info](/Documentatie/contextdiagram.png)
+
+![image info](/Documentatie/containerdiagram.png)
+
+Zie SoundSenseiProject.md voor de rest
+
 ### Business processes
 **You can explain simple business processes and relate them to the development of your software project.**
 
