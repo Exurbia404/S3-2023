@@ -44,7 +44,9 @@ Ik heb voor mijn backend, voor alle controllers unit tests geschreven. Hierdoor 
 ![image info](/Documentatie/actiondiagram.png)
 Wanneer ik push naar mijn git wordt er automatisch een build gemaakt, en worden al mijn tests gerund. Het was de bedoeling dat er automatisch een test result plan wordt geupload naar mijn git voor analyse maar dit is mij tot op heden niet gelukt werkend te krijgen. Het lukt wel om mijn solution te builden, te testen en te publishen.
 
-![image info](/Documentatie/buildanalysis.png)
+![image info](/Documentatie/Codemetricsbackend.png)
+
+Tot slot heb ik een codescan los laten gaan op mijn backend. Zoals je kan zien is mijn backend in een goede staat. Met een gemiddelde van 89 bij de maintainibility Index mag ik erg tevreden zijn.
 
 #### Frontend
 
@@ -59,7 +61,7 @@ Een test om te zien of er altijd 3 verschillende producten displayed worden:
 En een render test waarbij de test kijkt of de component wel fatsoenlijk zonder errors rendert.
 ![image info](/Documentatie/rendertest.png)
 
-
+Daarnaast heb ik ook tests geschreven voor mijn Product component
 
 ### Agile method
 
@@ -107,3 +109,10 @@ Ik heb in mijn 'business analyis.md' document een analyse gemaakt van een fictie
 ### Professional
 **You act in a professional manner during software development and learning.**
 
+Ik heb dit semester gebruik gemaakt van Trello om mijn persoonlijke project te managen. Ook hebben wij in het groepsproject gebruik gemaakt van Trello en aan het einde YouTracker.
+
+Ik communiceerde tijdig met met mijn klasgenoten online en offline over mijn voortgang en helpte wanneer nodig was. Het Finse groepje complimenteerde mij over mijn snelle implementatie van nieuwe features die zij nodig hadden.
+
+Ook ben ik met regelmaat naar Jean Paul geweest om mijn persoonlijke project te bespreken, feedback noteerde ik altijd in Feedpulse en ik probeerde zo vaak mogelijk afspraken te maken over wat ik in het volgende gesprek zou laten zien.
+
+Tot slot heb ik twee onderzoeken gemaakt om mijn onderzoeksvaardigheid aan te tonen, zie: Persoonlijkonderzoek.md en Cryptographic Failures Research Rapport.md. Hier maakte ik gebruik van het DOT-framework om een probleem te analyseren en op te lossen in mijn project.
