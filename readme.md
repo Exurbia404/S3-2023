@@ -26,6 +26,7 @@
     - [Contextdiagram:](#contextdiagram)
     - [Containerdiagram:](#containerdiagram)
     - [Database diagram:](#database-diagram)
+    - [Groepsproject designs:](#groepsproject-designs)
   - [Business processes](#business-processes)
   - [Professional](#professional)
  
@@ -221,6 +222,8 @@ Zie Ethics.md and Cultural differences.md
 ## Requirements and design
 **You translate (non-functional) requirements to extend existing (architectural) designs and can validate them using multiple types of test techniques.**
 
+Ik heb voor mijn persoonlijke project wat user stories opgezet om zo functionaliteit te omschrijven, deze zijn als volgt:
+
 ### User stories:
 
 __Een product aanmaken__
@@ -247,17 +250,57 @@ __Documentatie downloaden/inzien__
 
 Als hobbyist wil ik documentatie van een product kunnen inzien zodat ik bijvoorbeeld reparaties kan uitvoeren m.b.v. officiele documentatie.
 
+Daarnaast heb ik twee diagrammen gemaakt volgens het C4-model om wat context te geven aan mijn project.
+
 ### Contextdiagram:
 
 ![image info](/Documentatie/contextdiagram.png)
+
+In mijn contextdiagram kun je zien dat er 3 systemen zien;
+
+__Hi-Fi informatie systeem__
+
+Dit is in feite mijn frontend. Hier kan de gebruiker mee omgaan en allerlei handelingen verrichten.
+
+__Data opslag systeem__
+
+Dit is een onderdeel van mijn backend dat communiceert met mijn database. Hierin staat plaintext informatie en de gegevens over de user
+
+__Hi-Fi documentatie systeem__
+
+Hierin komt al mijn documentatie te staan. Dit kan ik niet in plain-text opslaan. Daarom gaat het in een ander systeem opgeslagen worden.
 
 ### Containerdiagram:
 
 ![image info](/Documentatie/containerdiagram.png)
 
+Hier kun je de daadwerkelijke containers zien van mijn programma. Helaas ontbreekt mijn server container omdat ik deze niet op tijd werkend gekregen heb. Ik heb toch nog 3 containers:
+
+__Web app__
+
+Hier wordt mijn react.js frontend gehost door Azure, gebruikers kunnen hierbij door middel van een url in hun browser. Tailwind CSS maakt het voor mij als developer makkelijker om frontend updates te doen.
+
+__API application__
+
+In deze container staat mijn ASP.net applicatie. Deze zorgt voor de communicatie tussen de frontend en de database. Ik gebruik hier Microsoft Entity Framework Core voor.
+
+__Database__
+
+Tot slot heb ik nog mijn database staan. Deze wordt door middel van AzureMySQL gehost en kan door de API aangeroepen worden.
+
 ### Database diagram:
 
 ![image info](/Documentatie/databasediagram.png)
+
+### Groepsproject designs:
+
+Ook hebben wij voor het groepsproject ontwerpen gemaakt. Deze hebben wij zoveel mogelijk gebaseerd op de ontwerpen van onze Finse groepsgenoten. Wij hebben dus dezelfde kleuren en fonts gebruikt. Tot slot hebben we met simpele react.js code de UI gemaakt voor een webapp.
+
+![image info](/Documentatie/swipperhomepage.png)
+
+![image info](/Documentatie/swippersearch.png)
+
+![image info](/Documentatie/swipperfavourites.png)
 
 ## Business processes
 **You can explain simple business processes and relate them to the development of your software project.**
