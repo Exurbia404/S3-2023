@@ -1,22 +1,23 @@
 LO3: Agile Methodiek
 
 - Mist bewijstlast van Agile Process X
+- Trello bord persoonlijk project erin en uitleggen X
+- Trello bord groepsproject en uitleggen X
+
+LO2: 
+
+- Wat dieper op de code scan ingaan. X
 
 LO6: Requirements en Design
 
-- Requirements opstellen X?
-- Containerdiagram maken X
-- C4 model uitleggen beter uitwerken
-- UI validatie X
-- Usability test process beschrijven X 
+- Contextdiagram verbeteren
+- UX verbeteringen uitleggen en voorbeelden laten zien
+- Groepscontainer diagram
+- GroepsUI laten zien
+- Keuzes beredeneren van onze nieuwe UI
 
 LO8: Professional
 
-- Inhoudelijke feedback vragen
-- Diepere conclusies
-- Metrics VS beter uitleggen
+- Onderzoeken iets uitgebreider
+- Reflectie van het semester schrijven
 
-- Onderzoek kijken naar validatie?
-- Misschien dieper erop in?
-
-Groepsproject bewijstlast?

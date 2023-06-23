@@ -10,15 +10,25 @@
     - [Designs:](#designs)
   - [UX Testen](#ux-testen)
     - [Test methodieken:](#test-methodieken)
+      - [Usability Testing:](#usability-testing)
+      - [A/B Testing:](#ab-testing)
+      - [Thinking out Loud:](#thinking-out-loud)
     - [Tests:](#tests)
+      - [1. Een specifiek product vinden](#1-een-specifiek-product-vinden)
+      - [2. Een nieuwe gebruiker aanmaken en inloggen](#2-een-nieuwe-gebruiker-aanmaken-en-inloggen)
+      - [3. Kijken of de UI in de smaak valt](#3-kijken-of-de-ui-in-de-smaak-valt)
+    - [Reflectie:](#reflectie)
   - [Software quality](#software-quality)
     - [Backend](#backend)
     - [Frontend](#frontend)
   - [Agile method](#agile-method)
-  - [Scrum Principles](#scrum-principles)
-  - [Scrum Steps](#scrum-steps)
-  - [Lean Principles](#lean-principles)
-  - [Lean Steps](#lean-steps)
+    - [Persoonlijk project:](#persoonlijk-project)
+    - [Groepsproject:](#groepsproject)
+    - [Scrum Principles](#scrum-principles)
+    - [Scrum Steps](#scrum-steps)
+    - [Kanban](#kanban)
+    - [Lean Principles](#lean-principles)
+    - [Lean Steps](#lean-steps)
   - [CI/CD](#cicd)
   - [Cultural differences and ethics](#cultural-differences-and-ethics)
   - [Requirements and design](#requirements-and-design)
@@ -29,6 +39,8 @@
     - [Groepsproject designs:](#groepsproject-designs)
   - [Business processes](#business-processes)
   - [Professional](#professional)
+    - [Persoonlijke onderzoeken](#persoonlijke-onderzoeken)
+    - [Zelfreflectie](#zelfreflectie)
  
 ## Web application
 
@@ -66,37 +78,37 @@ Wanneer je doorklikt kom je op de productspecificpage terecht. Hier moet alle ve
 
 ### Test methodieken:
 
-__Usability Testing:__
+#### Usability Testing:
 
 Usability Testing houdt in dat je feedback van gebruikers verzamelt terwijl ze omgaan met je product/prototype. Gebruikers krijgen een specifieke taak of functionaliteit om uit te testen, terwijl onderzoekers kijken naar hoe ze handelen, waar ze vastlopen en waar ze aan denken terwijl ze hun taak uitvoeren. Dit helpt bij het identificeren van bruikbaarheidsproblemen en een beter inzicht te krijgen van hoe gebruikers omgaan met een product/prototype.
 
-__A/B Testing:__
+#### A/B Testing:
 
 Bij A/B Testing vergelijk je twee varianten van een ontwerp/functionaliteit om te bepalen welke het beste presteert en in de smaak valt bij gebruikers. Gebruikers krijgen willekeurige taken en willekeurige versies te zien en moeten hun taak voltooien. Hier kun je ook weer kijken naar allerlei factoren om te bepalen welke versie/functionaliteit beter presteert.
 
-__Thinking out Loud:__
+#### Thinking out Loud:
 
 Bij de Thinking Aloud-methode wordt aan de deelnemers gevraagd om hun gedachten en handelingen hardop uit te spreken terwijl ze omgaan met een product/functionaliteit. Ze worden aangemoedigd om te delen wat er in hun hoofd omgaat, inclusief hun overwegingen, reacties en eventuele problemen die ze tegenkomen. Deze methode biedt inzicht in de manier waarop gebruikers denken, de beslissingen die ze nemen en de uitdagingen waarmee ze worden geconfronteerd tijdens het gebruik van een product of interface.
 
 ### Tests:
 
-__Test scenarios:__
-
-__1. Een specifiek product vinden__
+#### 1. Een specifiek product vinden
 
 Ik heb aan mijn Oma gevraagd of zij de "Philips Receiver 1" kon vinden. Ze begon op de homepage. Ze probeerde eerst op het Philips logo te klikken om zo bij de Philips producten te komen, deze functionaliteit is er echter niet. Toen dat niet werkte klikte ze op producten en scrollde toen tot ze de Philips Receiver 1 zag. 
 
 Ik vroeg haar waarom ze niet een filter gebruikte om sneller te zoeken. Omdat de filters dichtbij de navbar stonden dacht ze dat het onderdeel was van de navbar. Tot slot was het heel makkelijk geweest als de brands carousel direct door ging naar alle Philips producten. Dit is een functionaliteit die ik er graag wil implementeren.
 
-__2. Een nieuwe gebruiker aanmaken en inloggen__
+#### 2. Een nieuwe gebruiker aanmaken en inloggen
 
 Aan mijn zus vroeg ik of ze een nieuwe gebruiker kon maken. Ze drukte op de sign in knop en daarna op "dont have an account? sing up here". Voerde vervolgens haar gegevens in en drukte op op complete. De website logt niet automatisch in maar dit had ze vrij snel door. Ze drukte vervolgens op log in en gebruikte haar net ingevoerde gegevens om succesvol in te loggen.
 
 Het zou fijn zijn als de gebruiker meteen ingelogd wordt wanneer ze een nieuwe gebruiker aanmaakt. 
 
-__3. Kijken of de UI in de smaak valt__
+#### 3. Kijken of de UI in de smaak valt
 
 Tot slot mijn vader, iemand die veel naar audophile producten kijkt en vaak op Discogs.com zit. Hij vond de witte stijl van mijn ontwerp wel fijn maar had graag iets grotere letters gezien en de optie om naar meerdere plaatjes te kijken voordat je naar de productspecificpage gaat.
+
+### Reflectie:
 
 ## Software quality
 
@@ -109,9 +121,28 @@ Ik heb voor mijn backend, voor alle controllers unit tests geschreven. Hierdoor 
 ![image info](/Documentatie/actiondiagram.png)
 Wanneer ik push naar mijn git wordt er automatisch een build gemaakt, en worden al mijn tests gerund. Het was de bedoeling dat er automatisch een test result plan wordt geupload naar mijn git voor analyse maar dit is mij tot op heden niet gelukt werkend te krijgen. Het lukt wel om mijn solution te builden, te testen en te publishen.
 
+
 ![image info](/Documentatie/Codemetricsbackend.png)
 
-Tot slot heb ik een codescan los laten gaan op mijn backend. Zoals je kan zien is mijn backend in een goede staat. Met een gemiddelde van 89 bij de maintainibility Index mag ik erg tevreden zijn.
+Tot slot heb ik de build-in Code Metrics Analyzer van Visual Studio los gelaten op mijn code. Ik zal bij elke kolom uitleg geven over de resultaten. Ik geef geen uitleg over 'Lines of Source code' en 'Lines of Executable code' omdat dit meer reflecteert over hoe compact ik code kan schrijven dan de kwaliteit van de code.
+
+__Maintainability Index__
+
+De maintainability index geeft aan, op een schaal van 0-100, hoe onderhoud- en leesbaar een stuk code of klasse is. Met een laagste waarde van 68 in mijn backend (exclusief tests) kan ik tevreden zijn over de onderhoudbaarheid. Zoals te verwachten is, zijn mijn modellen goed leesbaar en mijn controllers gemiddeld. De berekening staat los van eventuele opmerkingen en de benaming van mijn variabelen. In de toekomst, wanneer ik een lage waarde tegen kom, kan ik toekomstige developers helpen door opmerkingen bij mijn code te zetten en kritisch te kijken naar de namen van mijn variabelen.
+
+__Cyclomatic Complexity__
+
+Deze waarde geeft aan hoe complex mijn code/programma is. Een hogere waarde is meer complex en dus lastiger te onderhouden. De meeste complexiteit zit in mijn controllers en verrassend genoeg in mijn models. Mijn controllers zijn in feite nog relatief simpele CRUD's met een beetje logica erdoorheen. Er worden wel veel interacties gedaan met de database, en dit kan mogelijk voor complexiteit zorgen. Mijn modellen zijn erg voor de hand liggend. Er zit geen logica in en het zijn puur data modellen. 
+
+Om een beeld te geven van de hoogte van deze waardes; volgens het internet zijn gemiddelde cyclomatische waarden rond de 10. De meeste van mijn klassen liggen rond deze waarde en een enkeling schiet hierboven uit. In de toekomst kan ik deze richtlijn aanhouden om te kijken naar mogelijk (te) complexe stukken code.  
+
+__Depth of Inheritance__
+
+Depth of Inheritance geeft aan hoeveel afhankelijkheden een klasse heeft. Gezien dit project niet bijzonder complex was zijn eigenlijk alleen mijn controllers afhankelijk van een andere klasse, namelijk de standaard ASP controller. Deze moet niet heel onbekend zijn voor de gemiddelde full-stack developer en met maar een waarde van 2 maak ik mij geen zorgen over de Depth of Inheritance.
+
+__Class Coupling__
+
+Tot slot geeft Class Coupling aan hoeveel andere klasses deze klasse gebruikt. Een hogere waarde kan zorgen voor complexere code en veel zoeken om een functionaliteit te begrijpen. Weer zie je dat mijn controllers een hogere waarde heeft. Dit komt omdat ik de ASP controller klasse gebruik. Hier zit veel functionaliteit in die mijn klasse gebruikt. De meeste functionaliteit binnen mijn controllers zijn vrij standaard dus ook hier ben ik niet bang voor de complexiteit en onderhoudbaarheid.
 
 ### Frontend
 
@@ -132,16 +163,39 @@ Daarnaast heb ik ook tests geschreven voor mijn Product component
 
 **You can implement the software process for your project according to a given agile software development method.** 
 
-Ik gebruik een Trello kanban bord om mijn project te managen. Een uitnodiging om deel te nemen aan de workspace is [Hier](https://trello.com/invite/b/0F2U4pv4/ATTI6facbb6aaba9b42c7fe6c076f33f3b2168DBE687/soundsensei "Trello invite") te vinden. Ik gebruik in het kanban bord labels om duidelijk aan te geven welk item bij welk onderdeel van mijn project hoort.
+### Persoonlijk project:
 
-## Scrum Principles
+![image info](/Documentatie/persoonlijkekanban.png)
+
+Voor mijn persoonlijke project heb ik gebruik gemaakt van de Kanban methodiek. Ik heb een kanban bord gemaakt op Trello en deze telkens bijgewerkt. Wanneer ik een feedback gesprek had, voegde ik nieuwe taken toe en zette ik de juiste kaartjes op done. Ik heb mijn kaartjes gelabeld met welk deel van het project het betreft. Zo kan ik snel zien of ik nog veel moet werken aan frontend, backend of documentatie.
+
+### Groepsproject:
+
+![image info](/Documentatie/swipperkanban.png)
+
+Tijdens het groepsproject hebben wij met Kanban en Scrum gewerkt. Tijdens het samenwerken probeerde wij Scrum toe te passen maar het werd uiteindelijk meer een uitvoering van Kanban. Hierboven kun je ons Kanban bord zien. Ook hier maakte wij gebruik van labels om te laten zien welke taak bij welk deel van het project hoort. Om het overzichtelijker te maken wie aan welke taak werkt hebben wij ook de verantwoordelijke erbij gezet. Pas als een kaart in de __Sprint backlog__ kwam kreeg de taak een verantwoordelijke. In de __Done:__ kolom kun je ook zien dat vrijwel elke kaart een verantwoordelijke heeft.
+
+![image info](/Documentatie/swipperkanbansubtaak.png)
+
+Tot slot hadden sommige taken subtaken. Dit had weer wat weg van Scrum. Subtaken waren kleine onderdelen die samen het geheel van de taak voltooien. Hier kun je bijvoorbeeld zien dat Kacper 3 subtaken had voor zijn 'Profile View UI' taak. Deze kon hij individueel afvinken en op het bord werd dit automatisch bijgehouden.
+
+![image info](/Documentatie/swipperyoutrack.png)
+
+Omdat wij niet voldoende hadden aangetoond dat wij een agile methodiek onder de knie kregen hebben wij van Samuil de opdracht gekregen om te kijken naar andere borden. Wij zijn toen uitgekomen op Youtracker. Hier konden wij fatsoenlijk Scrum aantonen. Wij hadden onze nieuwe userstories voor de laatste twee sprints hier in gezet en zijn met Youtracker aan de slag gegaan.
+
+![Alt text](/Documentatie/burndownchart.png)
+
+Dankzij Youtracker konden wij eindelijk een burndownchart maken. Iets wat niet makkelijk gaat met Trello. Wij hebben elke subtaak van de user stories een geschat aantal uren gegeven. Wanneer de taken voltooid waren konden wij deze naar done slepen. De burndownchart werd dan per dag aangepast om onze voortgang te laten zien. Wij hebben echter de burndownchart allemaal in de laatste twee dagen aangepast en hadden gehoopt dat als wij de taken naar een andere kolom zoals 'busy' en 'in review' zouden verplaatsen dat dit ook gereflecteerd werd in onze burndownchart. Dit was echter niet het geval.
+
+
+### Scrum Principles
 
 1. **Empirical Process Control**: Embrace the fact that knowledge emerges through experience and make decisions based on observations and feedback.
 2. **Self-Organization**: Encourage the team to self-organize and collaborate to deliver value.
 3. **Iterative and Incremental Delivery**: Break the project into small, manageable iterations or sprints to deliver value incrementally.
 4. **Collaboration**: Foster open communication and collaboration between the Scrum team, stakeholders, and customers.
 
-## Scrum Steps
+### Scrum Steps
 
 1. **Product Backlog**: Create and maintain a prioritized list of all desired features, enhancements, and bug fixes called the Product Backlog.
 
@@ -159,7 +213,7 @@ Ik gebruik een Trello kanban bord om mijn project te managen. Een uitnodiging om
 
 8. **Monitor and Adapt**: Continuously monitor progress, gather feedback, and adapt the product, backlog, and processes to optimize value delivery.
 
-__Kanban:__ 
+### Kanban
 
  Kanban is an approach to project management and workflow visualization that originated from lean manufacturing principles. It helps teams improve efficiency, productivity, and transparency by visualizing work and limiting work in progress. Here are the key steps involved in implementing Kanban:
 
@@ -179,9 +233,8 @@ __Kanban:__
 
 8. Collaborate and Improve: Encourage collaboration and transparency within the team. Regularly review the Kanban board together, identify bottlenecks, and discuss potential improvements. Continuously adapt and refine your Kanban system based on feedback and lessons learned.
 
-__Lean:__ 
 
-## Lean Principles
+### Lean Principles
 
 1. **Value**: Focus on understanding and delivering customer value.
 2. **Value Stream**: Identify and analyze the end-to-end value stream to eliminate waste and improve efficiency.
@@ -189,7 +242,7 @@ __Lean:__
 4. **Pull**: Implement a pull system where work is pulled based on customer demand, reducing overproduction.
 5. **Perfection**: Continuously seek perfection by relentlessly improving processes and eliminating waste.
 
-## Lean Steps
+### Lean Steps
 
 1. **Identify Value**: Identify the specific value that customers expect from your products or services. Understand what they are willing to pay for and what differentiates your offerings.
 
@@ -200,6 +253,8 @@ __Lean:__
 4. **Implement Pull**: Implement a pull system where work is pulled based on customer demand. This means producing or delivering items only when requested, minimizing overproduction and reducing inventory.
 
 5. **Seek Perfection**: Continuously strive for perfection by relentlessly improving processes, eliminating waste, and engaging all team members in the pursuit of excellence.
+
+
 
 ## CI/CD
 **You implement a (semi)automated software release process that matches the needs of the project context.**
@@ -310,6 +365,10 @@ Ik heb in mijn 'business analyis.md' document een analyse gemaakt van een fictie
 ## Professional
 **You act in a professional manner during software development and learning.**
 
+### Persoonlijke onderzoeken
+
+### Zelfreflectie
+
 Ik heb dit semester gebruik gemaakt van Trello om mijn persoonlijke project te managen. Ook hebben wij in het groepsproject gebruik gemaakt van Trello en aan het einde YouTracker.
 
 Ik communiceerde tijdig met met mijn klasgenoten online en offline over mijn voortgang en helpte wanneer nodig was. Het Finse groepje complimenteerde mij over mijn snelle implementatie van nieuwe features die zij nodig hadden.
@@ -317,3 +376,4 @@ Ik communiceerde tijdig met met mijn klasgenoten online en offline over mijn voo
 Ook ben ik met regelmaat naar Jean Paul geweest om mijn persoonlijke project te bespreken, feedback noteerde ik altijd in Feedpulse en ik probeerde zo vaak mogelijk afspraken te maken over wat ik in het volgende gesprek zou laten zien.
 
 Tot slot heb ik twee onderzoeken gemaakt om mijn onderzoeksvaardigheid aan te tonen, zie: Persoonlijkonderzoek.md en Cryptographic Failures Research Rapport.md. Hier maakte ik gebruik van het DOT-framework om een probleem te analyseren en op te lossen in mijn project.
+
