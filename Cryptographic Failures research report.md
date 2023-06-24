@@ -1,123 +1,103 @@
 # Cryptographic failures
 
-## Context
+## Table of contents:
+- [Cryptographic failures](#cryptographic-failures)
+  - [Table of contents:](#table-of-contents)
+  - [Context:](#context)
+  - [Onderzoeksmethodiek:](#onderzoeksmethodiek)
+  - [Valkuilen:](#valkuilen)
+    - [Use of Hard-coded passwords:](#use-of-hard-coded-passwords)
+    - [Broken or Risky Crypto Algorithm:](#broken-or-risky-crypto-algorithm)
+    - [Insufficient Entropy:](#insufficient-entropy)
+  - [Verbeteringen en conclusie:](#verbeteringen-en-conclusie)
+    - [Backend:](#backend)
+    - [Frontend:](#frontend)
+  - [Bronnenlijst:](#bronnenlijst)
 
+## Context:
 
-Cryptografische failures, zoals gedefinieerd door OWASP (Open Web Application Security Project), verwijzen naar kwetsbaarheden en tekortkomingen in het gebruik van cryptografische technieken en protocollen in webtoepassingen. Cryptografie speelt een cruciale rol bij het waarborgen van de vertrouwelijkheid, integriteit en authenticiteit van gegevens in moderne informatiesystemen. (OWASP)
+Voor het persoonlijke project dit semester heb ik ervoor gekozen om een webapp te maken voor audiophiles waar men informatie en documentatie kan opzoeken over bestaande producten. Bij elke applicatie is veiligheid een grote factor. Daarom heb ik vanuit school de opdracht gekregen om een onderzoek te doen naar een security principe. Ik heb ervoor gekozen om onderzoek te doen naar Cryptographic Failures. Omdat dit een van de basics is van een degelijk software programma bouwen, en wat veel te vaak nog mist gaat. Ik heb voor dit onderzoek/project eigenlijk nog geen ervaring opgedaan met security principes en al helemaal niet cryptografie.
 
-In de context van webtoepassingen kunnen cryptografische failures leiden tot ernstige beveiligingslekken en kunnen aanvallers gevoelige informatie onderscheppen, manipuleren of onthullen. OWASP identificeert verschillende typen cryptografische failures, waaronder:
+## Onderzoeksmethodiek:
 
-* __Zwakke algoritmen:__ Het gebruik van verouderde of bekende zwakke cryptografische algoritmen kan de veiligheid van gegevens in gevaar brengen. OWASP benadrukt het belang van het gebruik van sterke en gevalideerde algoritmen die bestand zijn tegen aanvallen.
+Voor dit onderzoek ga ik gebruik maken van één van de bestaande dotnet methodieken. Ik heb ervoor gekozen om de library methodiek te gebruiken om informatie te verzamelen. Dit omdat er al heel veel onderzoek gedaan is naar cryptografie. Ik kan heel erg mijn best doen om zelf iets nieuws te verzinnen om mijn cryptografie te verbeteren maar gezien zelfs grote bedrijven soms last hebben met fatsoenlijke cryptografie kan ik beter kijken naar wat de industriele standaarden zijn, en welke guidelines er bestaan om deze vervolgens over te nemen.
 
-* __Onjuiste sleutelbeheer:__ Een zwak sleutelbeheerproces kan leiden tot het compromitteren van versleutelde gegevens. Het opslaan, genereren, delen of beheren van sleutels op een onveilige manier kan cryptografische kwetsbaarheden creëren.
+## Valkuilen:
 
-* __Slechte configuratie:__ Onjuiste configuratie van cryptografische protocollen, zoals SSL/TLS, kan resulteren in mislukte beveiliging. Het niet inschakelen van de juiste beveiligingsparameters of het gebruik van verouderde versies van protocollen kan tot kwetsbaarheden leiden.
+OWASP noemt zelf 3 veel voorkomende valkuilen op het gebied van cryptografie (OWASP, 2021). Ik ga deze kort doornemen en telkens een manier geven om dit te voorkomen. Ook benoem ik of ik voor deze valkuilen ben gevallen (ja).
 
-* __Gebrek aan sterke willekeurige getallen:__ Het genereren van sterke willekeurige getallen is essentieel voor de veiligheid van cryptografische sleutels en andere kritieke parameters. Een gebrek aan voldoende willekeurigheid kan de voorspelbaarheid en veiligheid van het cryptografische systeem in gevaar brengen.
+### Use of Hard-coded passwords:
 
-## Strategie
+Volgens CWE, een community die zich focust op Common Weakness Enumartion, zijn er twee vormen van deze fout. Namelijk de inbound, en outbound vormen (CWE-259, 2023).
 
-Als ik een cryptografisch veilig programma wil maken, kan ik de "library" strategie toepassen. Dit houdt in dat ik gebruik maak van bestaande en goed geteste cryptografische bibliotheken. Ik identificeer eerst geschikte cryptografische bibliotheken die voldoen aan mijn beveiligingsstandaarden. Populaire bibliotheken zoals OpenSSL, Bouncy Castle of libsodium kunnen goede keuzes zijn (OpenSSL) (Bouncy Castle).
+In de inbound vorm checkt de software een door de gebruiker ingevoerd wachtwoord, of andere vorm van authenticatie, tegen een hard-coded wachtwoord. Het daadwerkelijke wachtwoord staat dus in de logica geschreven. Iemand die toegang heeft tot de applicatie, in bijvoorbeeld .exe vorm, kan gemakkelijk het wachtwoord vinden eruit halen. Detectie hiervan is erg lastig omdat de "aanval" plaatsvind aan de client side.
 
-Vervolgens beoordeel ik de documentatie en ondersteuning van de gekozen bibliotheken. Het is belangrijk dat ze goed gedocumenteerd zijn en regelmatig updates en patches uitbrengen om eventuele kwetsbaarheden aan te pakken.
-
-Daarna integreer ik de gekozen cryptografische bibliotheek in mijn programma door gebruik te maken van de API's en functies die worden aangeboden. Ik volg de richtlijnen en best practices die door de bibliotheek worden aanbevolen om de beveiliging te waarborgen.
-
-Bij het implementeren van de bibliotheek pas ik de juiste configuratie toe, zoals het inschakelen van sterke cipher suites, het instellen van de juiste sleutellengtes en het vermijden van verouderde algoritmen. Ik zorg ervoor dat ik de documentatie van de bibliotheek raadpleeg om de juiste configuratieopties te begrijpen en toe te passen.
-
-## Huidige situatie
-
-In mijn project maak ik gebruik van een inlogsysteem. Gebruikers kunnen dus zelf een wachtwoord aanmaken en deze gebruiken om in te loggen. Dit gaat in combinatie met hun email adress. Hieronder staat een afbeelding met daarop de database voor het onderzoek.
-
-![image info](/Documentatie/database.jpg)
-
-Zoals je kunt zien staat alles in plaintext. Dit betekent dat er geen enkele vorm van cryptografie op mijn data zit. Dit is natuurlijk gevaarlijk, wanneer iemand toegang kan krijgen tot de database is het maar een kwestie van kopiëren en plakken om de data op te slaan. Als je dus kijkt naar de vier punten van eerder ontbreekt eigenlijk alles.
-
-## Implementatie
-
-Gezien tijdnood kan ik deze functies niet daadwerkelijk meer implementeren. Ik wil het wel kort hebben over hoe ik deze functies/libraries zou implementeren in mijn programma en waarom;
-
-### Backend
-
-Ik heb gekozen voor de System.Security.Cryptography-bibliotheek omdat het een betrouwbare en goed onderhouden standaardbibliotheek is die wordt geleverd met het .NET Framework. Gezien mijn backend in ASP.net gemaakt is, wordt het implementeren hiervan heel simpel. Ook heb ik ervaring met deze library omdat ik deze eerder gebruikt heb. Het biedt cryptografische functies en algoritmen die bekend staan om hun beveiliging en betrouwbaarheid. De PBKDF2-implementatie in deze bibliotheek is een geschikte keuze voor het hashen van wachtwoorden, omdat het een hoge mate van beveiliging biedt door iteraties en een random gegenereerde salt te gebruiken (Microsoft).
+Ook bestaat er een outbound variant waarbij een programma gebruik maakt van een andere service en hiervoor het wachtwoord hard-code. Een voorbeeld die het CWE geeft is verbinding maken met een database.
 
 ```
-using System;
-using System.Security.Cryptography;
+<connectionStrings>
+<add name="ud_DEV" connectionString="connectDB=uDB; uid=db2admin; pwd=password; dbalias=uDB;" providerName="System.Data.Odbc" />
+</connectionStrings>
+```
 
-public class PasswordHelper
-{
-    private const int SaltSize = 16; // Grootte van de salt in bytes
-    private const int HashSize = 32; // Grootte van de gehashte waarde in bytes
-    private const int Iterations = 10000; // Aantal iteraties voor de hash-functie
+Veel mensen gebruik een configuratie bestand om hun configs ergens op te slaan om het overzichtelijk te houden. Maar zoals je kunt zien creeërt dit een valkuil waarbij je al gauw je wachtwoord in plaintext neerzet. Iemand die toegang krijgt tot deze config kan gemakkelijk het wachtwoord eruit plukken.
 
-    public static string HashPassword(string password)
-    {
-        byte[] salt = new byte[SaltSize];
-        using (var rng = new RNGCryptoServiceProvider())
-        {
-            rng.GetBytes(salt);
-        }
+Ik ben zelf schuldig van het laatste, ik gebruik in meerdere project een configuratie file waarin het wachtwoord in plaintext staat. Het CWE noemt meerde oplossingen hiervoor:
 
-        byte[] hash = HashPassword(password, salt);
+1. Sla wachtwoorden buiten de code op in een encrypted config bestand of database waarvan de toegang enorm gelimiteerd is (CWE-230, 2023).
+2. Je kunt de toegang tot een feature limiteren door het enkel via door jou bepaalde manieren toegang kan krijgen. Bijvoorbeeld enkel via de console i.p.v. het internet (CWE-259, 2023).
+3. Een oplossing voor inbound authenticatie is om een krachtige one-way hash toe te passen op de wachtwoorden en deze op te slaan in een configuratie file of database (hier kun je vervolgens punt 1 weer op toepassen). Wanneer je een gebruiker wilt authenticeren kun je de hash vergelijken met de hash die je opgeslagen hebt (CWE-259, 2023)
 
-        byte[] hashWithSalt = new byte[SaltSize + HashSize];
-        Array.Copy(salt, 0, hashWithSalt, 0, SaltSize);
-        Array.Copy(hash, 0, hashWithSalt, SaltSize, HashSize);
+### Broken or Risky Crypto Algorithm:
 
-        return Convert.ToBase64String(hashWithSalt);
-    }
+Het veld van cryptografie verandert vaak en snel. Voor bedrijven is het belangrijk de laatste cryptografie bij te houden en alert te zijn voor algorithmen die ontcijferd worden. Er bestaat een klein lijstje op Wikipedia van 13 (eerst) populaire algorithmen die gekraakt zijn in de loop der tijd (Wiki, 2023).
 
-    public static bool VerifyPassword(string password, string hashedPassword)
-    {
-        byte[] hashWithSalt = Convert.FromBase64String(hashedPassword);
-        byte[] salt = new byte[SaltSize];
-        byte[] hash = new byte[HashSize];
+Dit komt omdat computers steeds krachtiger zijn geworden en dus veel meer computatiekracht beschikbaar is om wachtwoorden te kraken. Iets wat vroeger decennia duurde om te kraken kan tegenwoordig in uren/dagen gekraakt worden. En met Quantumcomputers om de hoek, die exponentieel meer rekenkracht hebben dan een conventionele computer is het belangrijk om een algorithme continu te verbeteren (NewScientist).
 
-        Array.Copy(hashWithSalt, 0, salt, 0, SaltSize);
-        Array.Copy(hashWithSalt, SaltSize, hash, 0, HashSize);
+Een manier om je hiervan te beschermen is het laatste nieuws te volgen over cryptografische algorithmen en gebruik te maken van de laatste en veiligste algorithmen. Microsoft had heel lang support voor MD5 en DES algorithmen maar nadat deze gekraakt werden moesten ze de standaard Microsoft Libraries aanpassen om een andere variatie van het algoritme te gebruiken. Tegenwoordig geeft de Visual Studio compiler een waarschuwing wanneer je een gedateerd algorithme gebruikt (Microsoft, 2023). 
 
-        byte[] computedHash = HashPassword(password, salt);
+Ik maak zelf geen gebruik van een algorithme om mijn wachtwoorden te beveiligen. In het groepsproject is herhaaldelijk de suggestie gevallen om OAuth toe te passen, een internationaal standaard om authenticatie te regelen. In de toekomst kan ik voor mijn C# projecten een Microsoft Library gebruiken om deze valkuilen te vermijden.
 
-        return hash.SequenceEqual(computedHash);
-    }
+### Insufficient Entropy:
 
-    private static byte[] HashPassword(string password, byte[] salt)
-    {
-        using (var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, salt, Iterations))
-        {
-            return rfc2898DeriveBytes.GetBytes(HashSize);
-        }
-    }
+Insufficient Entropy is wanneer een algoritme te weinig willekeur heeft. Het liefste heb je een algoritme wat heel veel verschillende uitkomsten kan hebben zodat het voorspellen een stuk lastiger wordt. De verantwoordelijkheid hiervan ligt bij de programmeur van het algorithme en degene die het algorithme gebruikt. Je kunt wel een geavanceerd algorithme schrijven maar je als je bijvoorbeeld maar één en telkens dezelfde input geeft kan het voor een hacker makkelijk zijn een voorspelling te maken. Een voorbeeld hiervan is het volgende: 
+
+```
+function generateSessionID($userID){
+    srand($userID);
+    return rand();
 }
 ```
 
-### Frontend
+Hier gebruikt iemand de userID als seed voor de rand() functie. Omdat je hierdoor een patroon creeërt waarbij alles afhankelijk is op enkel de userID kan iemand dit patroon snel spotten. 
 
-Om de veiligheid tussen de frontend en backend te waarborgen, neem ik verschillende maatregelen:
+Een manier om deze valkuil te voorkomen is om zoveel mogelijk inputs te geven aan een algorithme. De meeste algorithme's bieden de mogelijkheid om meerdere inputs te geven, een mogelijkheid is om tijd toe te voegen. Hierdoor kan je de entropy van je programma op voldoende niveau houden.
 
-__Beveiligde communicatie:__ Ik zorg ervoor dat de communicatie tussen de frontend en backend plaatsvindt via een beveiligd protocol, zoals HTTPS. HTTPS maakt gebruik van versleuteling om gegevens tijdens de overdracht te beschermen tegen afluisteren en manipulatie (HTTPS).
+## Verbeteringen en conclusie:
 
-__Inputvalidatie:__ Ik implementeer strikte validatie aan zowel de frontend- als de backendzijde om ervoor te zorgen dat de ingevoerde gegevens voldoen aan de verwachte indeling en criteria. Dit helpt om kwetsbaarheden zoals SQL-injectie of cross-site scripting (XSS) te voorkomen(OWASP).
+Nu dat wij een beter beeld hebben van welke valkuilen er bestaan geef ik kort bij elk onderdeel aan hoe ik verbeteringen kan maken aan mijn programma:
 
-__Gebruik van beveiligde sessies:__ Ik maak gebruik van beveiligde sessies om de authenticiteit en integriteit van gebruikers te controleren. Hierbij wordt een unieke sessie-id gegenereerd voor elke gebruiker en op een veilige manier opgeslagen. Dit voorkomt sessiediefstal en vervalsing(OWASP).
+### Backend:
 
-__Toegangscontrole en autorisatie:__ Ik implementeer een robuust toegangscontrolebeleid om ervoor te zorgen dat gebruikers alleen toegang hebben tot de gegevens en functionaliteiten die ze nodig hebben. Dit omvat het verifiëren van gebruikersrollen en het toepassen van autorisatieregels op zowel frontend- als backendniveau.
+- Gebruik maken van beveiligde configuratiefiles.
+- Wachtwoorden die opgeslagen moeten worden hashen.
+- Gebruik maken van industriele standaard libraries van grote partijen.
+- Regelmatig kijken of mijn gebruikte algorithmen nog veilig zijn.
 
-__Bescherming tegen cross-site scripting (XSS) en cross-site request forgery (CSRF):__ Ik implementeer beveiligingsmaatregelen zoals het valideren en filteren van invoer, het gebruik van anti-CSRF-tokens en het toepassen van Content Security Policy (CSP) om XSS- en CSRF-aanvallen te voorkomen.
+### Frontend:
 
-__Beveiligde opslag van gegevens:__ Ik zorg ervoor dat gevoelige gegevens, zoals wachtwoorden en persoonlijke informatie, op een veilige manier worden opgeslagen in de backend. Dit omvat het gebruik van veilige hash- en salt-algoritmen om wachtwoorden te beschermen en het toepassen van encryptie op gevoelige gegevens(OWASP).
+- In de frontend kan ik gebruik maken van OAuth.
+- Functionaliteit zoveel mogelijk beschermen met zogenaamde gates.
 
-## Bronnen
+Door deze methoden toe te passen kan ik mijn programma op het cryptografische niveau een stuk veiliger maken. Natuurlijk moet ik ook rekening houden met de andere OWASP security problemen. Door tijdnood heb ik deze verbeteringen niet toe kunnen passen maar de basis is er wel. In mijn volgende project zal ik deze zeker meenemen.
 
-1. OWASP Crypto Coding Practices Guide: [OWASP Crypto Coding Practices Guide](https://owasp.org/www-project-crypto-coding-practices/)
+## Bronnenlijst:
 
-2. Documentatie van OpenSSL: [OpenSSL Documentation](https://www.openssl.org/docs/)
-
-3. Documentatie van Bouncy Castle: [Bouncy Castle Documentation](https://www.bouncycastle.org/documentation.html)
-4. Microsoft Documentation: [Hashing Passwords with Password-Based Key Derivation Function 2 (PBKDF2)](https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rfc2898derivebytes?view=net-5.0)
-5. "HTTPS" - OWASP Cheat Sheet: Transport Layer Protection (https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
-6. "Input Validation" - OWASP Cheat Sheet: Input Validation (https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
-7.  "Session Management" - OWASP Cheat Sheet: Session Management (https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
-
+- [OWASP, 2021](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
+- [CWE-259, 2023](https://cwe.mitre.org/data/definitions/259.html)
+- [CWE-230, 2023](https://cwe.mitre.org/data/definitions/320.html)
+- [Wiki, 2023](https://en.wikipedia.org/wiki/Category:Broken_cryptography_algorithms)
+- [NewScientist, 2023](https://www.newscientist.com/article/2353376-quantum-computers-can-break-major-encryption-method-researchers-claim/#:~:text=A%20group%20of%20researchers%20has,powerful%20enough%20to%20threaten%20encryption.)
+- [Microsoft, 2023](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca5351)
+- [CWE-331, 2023](https://cwe.mitre.org/data/definitions/331.html)
 

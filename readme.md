@@ -36,7 +36,10 @@
     - [Contextdiagram:](#contextdiagram)
     - [Containerdiagram:](#containerdiagram)
     - [Database diagram:](#database-diagram)
-    - [Groepsproject designs:](#groepsproject-designs)
+    - [Groepsproject:](#groepsproject-1)
+      - [Finse ontwerpen:](#finse-ontwerpen)
+      - [Onze ontwerpen:](#onze-ontwerpen)
+      - [Swipper container diagram:](#swipper-container-diagram)
   - [Business processes](#business-processes)
   - [Professional](#professional)
     - [Persoonlijke onderzoeken](#persoonlijke-onderzoeken)
@@ -309,45 +312,49 @@ Daarnaast heb ik twee diagrammen gemaakt volgens het C4-model om wat context te 
 
 ### Contextdiagram:
 
-![image info](/Documentatie/contextdiagram.png)
+![image info](/Documentatie/soundsenseicontext.png)
 
-In mijn contextdiagram kun je zien dat er 3 systemen zien;
-
-__Hi-Fi informatie systeem__
-
-Dit is in feite mijn frontend. Hier kan de gebruiker mee omgaan en allerlei handelingen verrichten.
-
-__Data opslag systeem__
-
-Dit is een onderdeel van mijn backend dat communiceert met mijn database. Hierin staat plaintext informatie en de gegevens over de user
-
-__Hi-Fi documentatie systeem__
-
-Hierin komt al mijn documentatie te staan. Dit kan ik niet in plain-text opslaan. Daarom gaat het in een ander systeem opgeslagen worden.
+In mijn contextdiagram kun je mijn SoundSensei systeem zien en de twee actoren die er mee om zullen gaan. De normale gebruiker die zijn twee lijstjes kan aanvullen met producten die beschikbaar zijn op SoundSensei. En een administrator die de producten kan wijzigen, toevoegen of verwijderen. Hij heeft ook de taak om nieuwe documentatie te beoordelen en te accepteren.
 
 ### Containerdiagram:
 
-![image info](/Documentatie/containerdiagram.png)
+![image info](/Documentatie/soundsenseicontainer.png)
 
-Hier kun je de daadwerkelijke containers zien van mijn programma. Helaas ontbreekt mijn server container omdat ik deze niet op tijd werkend gekregen heb. Ik heb toch nog 3 containers:
+Als je dan een stapje dieper gaat kijken kun je de verschillende bouwblokken (ofwel containers) van mijn programma zien:
 
-__Web app__
+__Frontend app__
 
 Hier wordt mijn react.js frontend gehost door Azure, gebruikers kunnen hierbij door middel van een url in hun browser. Tailwind CSS maakt het voor mij als developer makkelijker om frontend updates te doen.
 
-__API application__
+__SoundSensei API__
 
 In deze container staat mijn ASP.net applicatie. Deze zorgt voor de communicatie tussen de frontend en de database. Ik gebruik hier Microsoft Entity Framework Core voor.
 
+__Documentation server__
+
+Ook wil ik, door middel van een Azure Blob Server, documentatie kunnen opslaan en toegankelijk maken voor een gebruiker. Dit gaat op een aparte server om de grootte van mijn database klein te houden en alles netjes gescheiden te houden.
+
 __Database__
 
-Tot slot heb ik nog mijn database staan. Deze wordt door middel van AzureMySQL gehost en kan door de API aangeroepen worden.
+Tot slot heb ik nog mijn database staan. Deze wordt door middel van AzureMySQL gehost en kan door de API aangeroepen worden. Hierin staat informatie over een gebruiker, producten en verschillende merken. 
 
 ### Database diagram:
 
 ![image info](/Documentatie/databasediagram.png)
 
-### Groepsproject designs:
+### Groepsproject:
+
+#### Finse ontwerpen:
+
+De Finnen hadden besloten om een mobile app te maken omdat zij vorig semester al een webapp hebben gemaakt en dit semester mobile applicaties moesten aantonen. Zij zijn begonnen met allerlei wireframes te maken en deze aan elkaar te koppelen om zo een beeld te krijgen van hoe de frontend in elkaar zit. Hier volgend een paar voorbeelden van hun mockups om deze daarna te vergelijken met onze ontwerpen:
+
+![image info](/Documentatie/FNswipperhomepage.jpg)
+
+![image info](/Documentatie/FNswippersearch.jpg)
+
+![image info](/Documentatie/FNswipperfavourites.jpg)
+
+#### Onze ontwerpen:
 
 Ook hebben wij voor het groepsproject ontwerpen gemaakt. Deze hebben wij zoveel mogelijk gebaseerd op de ontwerpen van onze Finse groepsgenoten. Wij hebben dus dezelfde kleuren en fonts gebruikt. Tot slot hebben we met simpele react.js code de UI gemaakt voor een webapp.
 
@@ -356,6 +363,28 @@ Ook hebben wij voor het groepsproject ontwerpen gemaakt. Deze hebben wij zoveel 
 ![image info](/Documentatie/swippersearch.png)
 
 ![image info](/Documentatie/swipperfavourites.png)
+
+#### Swipper container diagram:
+
+![image info](/Documentatie/swippercontainerdiagram.png)
+
+Hier is de containerdiagram van ons groepsproject te zien. Er zijn 3 containers en een externe API aanwezig om ons project werkend te krijgen.
+
+__Frontend:__
+
+Wij hebben een eigen frontend gemaakt gebaseerd op React.js. Hier kan de gebruiker dezelfde handelingen doen als in de mobile app die de finnen hadden gemaakt zoals: een nieuw account maken, inloggen, een dier liken, je likes zien, een dier zoeken door middel van filters en je eigen listings aanmaken. 
+
+__API:__
+
+Ons plan was origineel om een Typescript REST API te maken. Dit is echter door tijdsnood en weinig ervaring niet gelukt. Daarom heb ik een ASP.NET API gemaakt en deze online gezet op Azure. De API maakt ook gebruik van Microsoft's Entity Framework Core om communicatie met onze database makkelijk te maken. De API maakt ook gebruik van een andere API, waar ik zo meer over kan vertellen, om standaard data van een dier op te vragen en deze vervolgens in de listings te gebruiken. De eigenaar van de listing kan deze data vervolgens nog aanpassen om een beter beeld te geven van het dier. 
+
+__Database:__
+
+Om onze data ergens op te slaan hebben wij via Azure een MySQL database op kunnen zetten. Hier worden onze gebruikers en listings opgeslagen.
+
+__Externe API:__
+
+Zoals ik eerder al zei maken wij gebruik van een externe API om standaard informatie op te vragen van een dier. Wij hebben vaak geswitcht tussen een specifieke hond API en een generieke animal API. Omdat wij toch meerdere dieren wilde gebruiken in onze webapp maken wij dus gebruik van de generieke API.
 
 ## Business processes
 **You can explain simple business processes and relate them to the development of your software project.**
@@ -369,11 +398,28 @@ Ik heb in mijn 'business analyis.md' document een analyse gemaakt van een fictie
 
 ### Zelfreflectie
 
-Ik heb dit semester gebruik gemaakt van Trello om mijn persoonlijke project te managen. Ook hebben wij in het groepsproject gebruik gemaakt van Trello en aan het einde YouTracker.
+__Een korte samenvatting van S3:__
 
-Ik communiceerde tijdig met met mijn klasgenoten online en offline over mijn voortgang en helpte wanneer nodig was. Het Finse groepje complimenteerde mij over mijn snelle implementatie van nieuwe features die zij nodig hadden.
+Ik heb gemerkt dat halverwege dit semester mijn motivatie erg laag was en had het gevoel dat ik geen voortgang meer kon maken. Ik probeerde te veel grote dingen tegelijkertijd te doen. 
 
-Ook ben ik met regelmaat naar Jean Paul geweest om mijn persoonlijke project te bespreken, feedback noteerde ik altijd in Feedpulse en ik probeerde zo vaak mogelijk afspraken te maken over wat ik in het volgende gesprek zou laten zien.
+Ons groepsproject was aan de Nederlandse kant erg mager en niet functioneel genoeg om aan de Finnen te geven. We zouden aan de slag gaan met een Typescript REST API maar dit was voor mij compleet onbekend terrein. Ons hele groepje liep een beetje tegen een muur op gezien veel van het programmeren onbekend was en enkel Alexander de grote problemen kon oplossen. Ik kreeg hierdoor weinig motivatie om serieues te werken aan het groepsproject en ging minder naar school op de groepsdagen.
 
-Tot slot heb ik twee onderzoeken gemaakt om mijn onderzoeksvaardigheid aan te tonen, zie: Persoonlijkonderzoek.md en Cryptographic Failures Research Rapport.md. Hier maakte ik gebruik van het DOT-framework om een probleem te analyseren en op te lossen in mijn project.
+Toen ik ons groepje een deadline gaf  om een werkend prototype te maken en deze deadline voorbij ging besloot ik om zelf een API te maken met ASP.net omdat ik hier meer ervaring mee had en een beter gevoel had van wat ik aan het doen was. Ik had binnen een korte tijd een werkend prototype en kon deze aan de Finnen presenteren. 
 
+Hierdoor kreeg ik een hoop motivatie om ook mijn eigen project af te maken. Ik deelde alles in kleine stukken op en zette deze op Trello. Ik probeerde alles zo stapgewijs aan te pakken omdat ik bang was om weer tegen een groot probleem aan te lopen. Omdat alles een stuk beter liep begon ik meer naar school te gaan, en meer te communiceren met mijn groepsgenoten en andere klasgenoten. Dit heeft mij op sommige gebieden enorm geholpen en ik ben er zeker van dat ik bepaalde problemen niet tijdig had kunnen oplossen zonder de rest.
+
+Toen de Finnen in Mei in Nederland waren ging onze groepssamenwerking erg goed. In de korte week dat ze er waren konden wij veel implementeren en werd er veel overlegd tussen de Nederlandse en Finse groepen. Ik nam veel van het technische werk op mijzelf omdat ik de backend zelf gemaakt had en hier dus het meeste verstand van had. Ik ben persoonlijk erg trots op het eindresultaat wat wij met de Finnen hebben mogen presenteren.
+
+Nadat de samenwerking met de Finse groep afgelopen was, was er een soort gat wij moesten opvullen voor de proftaak. Wij hadden vrijwel direct besloten om onze eigen (web-based) frontend te maken en onze bestaande API te gebruiken om alles werkend te krijgen. 
+
+Aan de kant van mijn persoonlijke project ging het ook goed, ik maakte grote stappen en kreeg steeds meer af. Het werd langzamerhand wel tijd om testen te gaan schrijven en mijn portfolio/documentatie af te maken. Dit stelde ik telkens weer uit omdat ik veel liever met de technische kant bezig was en er telkens wel een klein nieuw iets was wat ik wilde maken.
+
+Doordat ik mijn documentatie uitstelde kwam ik de laatste weken toch wel in de stress en heb ik snel geprobeerd documentatie te maken. Veelal was er maar het was nog niet op niveau. Dit realiseerde ik mij toen ik de feedback las van Samuil en Jean Paul.
+
+__Wat zou ik anders doen?__
+
+Motivatie en planning zijn grote valkuilen geweest dit semester voor mij. Mijn lak aan motivatie kwam voornamelijk door alles snel en in een keer goed te willen doen. Ik moet mij beseffen dat niet alles in één keer goed kan en dat iteratief werken een stuk beter is. 
+
+Als ik mijn docenten veel meer betrokken houd met de inhoud van mijn werk, dan met wat ik aan het doen ben, hebben zij en ik een goed beeld van hoe ik ervoor sta. Jean Paul beaamde dit in zijn feedback. Het aantal feedback gesprekken waren voldoende maar ik moet meer op inhoud ingaan. Daarom wil ik voortaan punten opstellen die ik wil bespreken met docenten.
+
+Planning is een ander punt, Trello heeft mij in de tweede helft van het semester enorm geholpen met het overzichtelijk maken van wat ik moet doen en waarvoor. In de volgende semesters wil ik dit weer gaan gebruiken, misschien Youtracker vanwege de sprintindelingen, om een goed overzicht te krijgen met hoe ik er voor sta.

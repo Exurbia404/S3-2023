@@ -1,23 +1,11 @@
-LO3: Agile Methodiek
-
-- Mist bewijstlast van Agile Process X
-- Trello bord persoonlijk project erin en uitleggen X
-- Trello bord groepsproject en uitleggen X
-
-LO2: 
-
-- Wat dieper op de code scan ingaan. X
-
 LO6: Requirements en Design
 
-- Contextdiagram verbeteren
 - UX verbeteringen uitleggen en voorbeelden laten zien
-- Groepscontainer diagram
-- GroepsUI laten zien
-- Keuzes beredeneren van onze nieuwe UI
 
 LO8: Professional
 
 - Onderzoeken iets uitgebreider
-- Reflectie van het semester schrijven
 
+Business analysis aanpassen naar BPM.
+
+in readme.md nog een korte omschrijving van de onderzoeken geven. 

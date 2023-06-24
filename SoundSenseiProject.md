@@ -37,8 +37,8 @@ Als hobbyist wil ik documentatie van een product kunnen inzien zodat ik bijvoorb
 
 ## Contextdiagram
 
-![image info](/Documentatie/contextdiagram.png)
+![image info](/Documentatie/soundsenseicontext.png)
 
 ## Container diagram
 
-![image info](/Documentatie/containerdiagram.png)
+![image info](/Documentatie/soundsenseicontainer.png)
