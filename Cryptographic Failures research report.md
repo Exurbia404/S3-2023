@@ -10,8 +10,9 @@
     - [Broken or Risky Crypto Algorithm:](#broken-or-risky-crypto-algorithm)
     - [Insufficient Entropy:](#insufficient-entropy)
   - [Verbeteringen en conclusie:](#verbeteringen-en-conclusie)
-    - [Backend:](#backend)
-    - [Frontend:](#frontend)
+    - [Configuratie hash:](#configuratie-hash)
+    - [Salt en Hash:](#salt-en-hash)
+  - [Conclusie:](#conclusie)
   - [Bronnenlijst:](#bronnenlijst)
 
 ## Context:
@@ -75,21 +76,61 @@ Een manier om deze valkuil te voorkomen is om zoveel mogelijk inputs te geven aa
 
 ## Verbeteringen en conclusie:
 
-Nu dat wij een beter beeld hebben van welke valkuilen er bestaan geef ik kort bij elk onderdeel aan hoe ik verbeteringen kan maken aan mijn programma:
+### Configuratie hash:
+```
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=sndsenseidb.mysql.database.azure.com;Database=soundsensei_database;Uid=SoundSenseiAdmin;Pwd=Tom@Admin;sslmode=required;"
+  }
+}
 
-### Backend:
+```
+Hier kun je mijn oude appsetings.json file zien die ik gebruik om een verbinding tot stand te brengen met mijn Azure database. Dit moet ik als onderdeel van Hard-Coded passwords verbeteren. Een manier om dat te doen was om een hash toe te passen op het wachtwoord en de toegang tot het bestand te beveiligen. Ik kan dus mijn configuratie door een SHA256 algoritme halen. Mijn configuratiefile ziet er dan zo uit:
 
-- Gebruik maken van beveiligde configuratiefiles.
-- Wachtwoorden die opgeslagen moeten worden hashen.
-- Gebruik maken van industriele standaard libraries van grote partijen.
-- Regelmatig kijken of mijn gebruikte algorithmen nog veilig zijn.
+```
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=df70ffd58530926b9e96ab2ec58094cea64dd1c4002f268e5465401c68f78516;Database=f82d32b98ff981d193e69b0fb9f03b1a646ba22fd97d75a6b9e169b13b313dfa;Uid=47063a1585be7a2839daa43ca37c0b7b850c3b0643441685d3d1aa2ab2f2b245;Pwd=8d787fc1e15d0e597939ea6fba3ad8786e519208a1af0c02a53492afd42ffb23;sslmode=required;"
+  }
+}
 
-### Frontend:
+```
 
-- In de frontend kan ik gebruik maken van OAuth.
-- Functionaliteit zoveel mogelijk beschermen met zogenaamde gates.
+Ik kan aangeven bij Azure dat ik mijn wachtwoord en andere gegevens meestuur in de vorm van een SHA256 hash. Azure vergelijkt dan deze hashes met de hash van mijn daadwerkelijke wachtwoorden. Zo kan ik op een veilige manier toegaan krijgen tot mijn database.
 
-Door deze methoden toe te passen kan ik mijn programma op het cryptografische niveau een stuk veiliger maken. Natuurlijk moet ik ook rekening houden met de andere OWASP security problemen. Door tijdnood heb ik deze verbeteringen niet toe kunnen passen maar de basis is er wel. In mijn volgende project zal ik deze zeker meenemen.
+### Salt en Hash:
+
+Ook kan ik een Salt en Hash toepassen in mijn project. Momenteel worden wachtwoorden (en andere gebruikersgegevens) opgeslagen in plain-text. Dit is natuurlijk een van de grootste fouten die je als ontwikkelaar kan maken. Daarom wil ik kort kijken naar hoe ik een simpele salt en hash kan toepassen in mijn front- en backend.
+
+__Frontend:__
+
+In mijn frontend kan ik de 'bycriptjs' library gebruiken. De toepassing ervan is erg simpel. Wanneer een gebruiker gegevens invoert kan ik deze hashen door middel van de volgende code:
+
+```
+const saltRounds = 10; // Number of salt rounds to use (higher means more secure but slower)
+const salt = bcrypt.genSaltSync(saltRounds);
+const hashedPassword = bcrypt.hashSync(userPassword, salt);
+
+```
+
+Ik hoef dit niet enkel voor het wachtwoord te gebruiken, een veel veiligere optie zou zijn om alle gegevens van een gebruiker te encrypten. Ik kan daarna __hashedPassword__ doorsturen naar de backend om deze vervolgens op te slaan in mijn database (BcryptJS, 2017).
+
+__Backend:__
+
+Wanneer een gebruiker wilt inloggen moeten de gegevens ook weer zichtbaar kunnen worden. Ook voor ASP.net bestaat een library namelijk de 'Bcrypt.net' library. Deze kan ik als volgt gebruiken om een gebruiker in te laten loggen:
+
+```
+string storedHashedPassword = "..." // Retrieve the stored hashed password from your storage
+bool isMatch = BCrypt.Net.BCrypt.Verify(receivedPassword, storedHashedPassword);
+// 'isMatch' will be true if the received password matches the stored hashed password
+
+```
+
+Op basis van deze implementatie kan ik veilig gebruikers gegevens opslaan en gebruikers nog steeds de mogelijkheid geven om in te loggen (BcryptNET, 2022)
+
+## Conclusie:
+
+Dankzij dit onderzoek heb ik meerdere valkuilen leren kennen van cryptografie en programmeren. Ik was zelf schuldig aan meerdere van deze valkuilen en heb onderzoek gedaan naar wat deze valkuilen exact zijn, en hoe je ze kunt voorkomen. Tot slot heb ik gekeken naar hoe ik een oplossing kan implementeren in mijn persoonlijke project SoundSensei. In de toekomst kan ik dit onderzoek weer raadplegen om te kijken naar de valkuilen maar ook om te kijken naar de nieuwe implementaties om deze over te nemen.
 
 ## Bronnenlijst:
 
@@ -100,4 +141,6 @@ Door deze methoden toe te passen kan ik mijn programma op het cryptografische ni
 - [NewScientist, 2023](https://www.newscientist.com/article/2353376-quantum-computers-can-break-major-encryption-method-researchers-claim/#:~:text=A%20group%20of%20researchers%20has,powerful%20enough%20to%20threaten%20encryption.)
 - [Microsoft, 2023](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca5351)
 - [CWE-331, 2023](https://cwe.mitre.org/data/definitions/331.html)
+- [BcryptJS, 2017](https://www.npmjs.com/package/bcryptjs)
+- [BcryptNET, 2022](https://github.com/BcryptNet/bcrypt.net)
 
