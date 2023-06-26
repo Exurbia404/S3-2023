@@ -1,5 +1,4 @@
-# Business analyis: Project managment
-
+# Business  Process Analysis
 ## Context
 
 Een logistiek bedrijf wilt de status van haar vloot in real-time kunnen monitoren. In het huidige systeem kunnen ze enkel zien of een vrachtwagen onderweg is, bij de klant, bij de leverancier of pauze heeft. De locatie en geschatte aankomsttijd kunnen enkel telefonisch gecommuniceerd worden.
@@ -22,4 +21,12 @@ In dit process zijn er een paar voorwaarden aanwezig voor een snel en efficient 
 ![image info](/Documentatie/nieuwprocess.png)
 
 In het nieuwe process kan de klant via een service systeem inzien waar de vracht is, en wanneer de vracht aankomt. Dit kan 24/7 gemonitord worden, dus ook buiten kantooruren wanneer de klantenservice dit bijvoorbeeld niet meer kan doen. Een GPS systeem dat in elke vrachtwagen zit kan accuraat de locatie en snelheid opgeven. Ook kan het service systeem door middel van verkeersinformatie een betere schatting geven van de aankomsttijd. 
+
+## BPMN
+
+Omdat ik het toch lastig vond om BPMN toe te passen op de bovenste situatie heb ik ervoor gekozen een tweede situatie te schetsen in BPMN. Ik kan hier geen verbetering op toe passen dus het is enkel om BPMN aan te tonen:
+
+![image info](/Documentatie/BPMN.png)
+
+In deze situatie schets ik hoe een order door een bedrijf verwerkt wordt. Een order komt binnen en er wordt gekeken of de betaling ervan geslaagd is. Wanneer dit het geval is kan het door gaan naar het magazijn. Als dit niet het geval is mislukt de order. Het magazijn pickt de order en de bezorger levert het vervolgens af bij de klant waardoor het process afgerond is.
 

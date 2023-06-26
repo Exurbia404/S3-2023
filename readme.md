@@ -101,15 +101,26 @@ Ik heb aan mijn Oma gevraagd of zij de "Philips Receiver 1" kon vinden. Ze begon
 
 Ik vroeg haar waarom ze niet een filter gebruikte om sneller te zoeken. Omdat de filters dichtbij de navbar stonden dacht ze dat het onderdeel was van de navbar. Tot slot was het heel makkelijk geweest als de brands carousel direct door ging naar alle Philips producten. Dit is een functionaliteit die ik er graag wil implementeren.
 
+![image info](/Documentatie/productspage-wireframe.png)
+![image info](/Documentatie/productpagina.png)
+
+Hier kun je de aanpassingen zien die ik gemaakt heb op basis van de test:
+
+- Ik heb de filters naar links gebracht om een duidelijke afscheiding te maken
+- De namen van de producten heb ik naar onderen geplaatst omdat dit een logischere volgorde geeft voor een gebruiker om te scannen: eerst de afbeelding, daarna de tekst.
+- Ook heb ik de beschikbare brands bij de filters gezet i.p.v. een dropdown
+
+
+
 #### 2. Een nieuwe gebruiker aanmaken en inloggen
 
 Aan mijn zus vroeg ik of ze een nieuwe gebruiker kon maken. Ze drukte op de sign in knop en daarna op "dont have an account? sing up here". Voerde vervolgens haar gegevens in en drukte op op complete. De website logt niet automatisch in maar dit had ze vrij snel door. Ze drukte vervolgens op log in en gebruikte haar net ingevoerde gegevens om succesvol in te loggen.
 
-Het zou fijn zijn als de gebruiker meteen ingelogd wordt wanneer ze een nieuwe gebruiker aanmaakt. 
+Het zou fijn zijn als de gebruiker meteen ingelogd wordt wanneer ze een nieuwe gebruiker aanmaakt. Deze functionaliteit probeer ik dan ook in te bouwen.
 
 #### 3. Kijken of de UI in de smaak valt
 
-Tot slot mijn vader, iemand die veel naar audophile producten kijkt en vaak op Discogs.com zit. Hij vond de witte stijl van mijn ontwerp wel fijn maar had graag iets grotere letters gezien en de optie om naar meerdere plaatjes te kijken voordat je naar de productspecificpage gaat.
+Tot slot mijn vader, iemand die veel naar audophile producten kijkt en vaak op Discogs.com zit. Hij vond de witte stijl van mijn ontwerp wel fijn maar had graag iets grotere letters gezien en de optie om naar meerdere plaatjes te kijken voordat je naar de productspecificpage gaat. Ik wil nog kijken of het mogelijk is om de meerdere plaatjes in te bouwen.
 
 ### Reflectie:
 
@@ -395,6 +406,11 @@ Ik heb in mijn 'business analyis.md' document een analyse gemaakt van een fictie
 **You act in a professional manner during software development and learning.**
 
 ### Persoonlijke onderzoeken
+
+Ik heb voor dit semester twee onderzoeken moeten schrijven. Eentje gefocust op een security principe wat ik kon koppelen aan mijn persoonlijke project. Ik heb daarvoor een onderzoek gedaan naar [Cryptografische Failures](CryptographicFailures.md)
+
+
+Daarnaast heb ik een [onderzoek](Persoonlijkonderzoek.md) gedaan naar hoe ik documentatie kan opslaan op een server om deze vervolgens te gebruiken in SoundSensei, mijn persoonlijke project.
 
 ### Zelfreflectie
 
